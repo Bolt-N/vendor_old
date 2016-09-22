@@ -8,6 +8,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.selinux=1
 
+# SuperSU
+PRODUCT_COPY_FILES += \
+ vendor/dk/prebuilt/common/etc/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip \
+ vendor/dk/prebuilt/common/etc/init.d/99SuperSUDaemon:system/etc/init.d/99SuperSUDaemon
+
+PRODUCT_COPY_FILES += \
+ vendor/dk/prebuilt/common/addon.d/91-v4a.sh:system/addon.d/91-v4a.sh \
+ vendor/dk/prebuilt/common/etc/v4a.zip:system/addon.d/v4a.zip
+ 
 # Backup Tool
 PRODUCT_COPY_FILES += \
     vendor/dk/prebuilt/bin/backuptool.sh:system/bin/backuptool.sh \
@@ -24,7 +33,7 @@ PRODUCT_COPY_FILES += \
 #    vendor/dk/prebuilt/etc/init.local.rc:root/init.dk.rc
 
 # Additional packages
-#-include vendor/dk/config/packages.mk
+-include vendor/dk/config/packages.mk
 
 PRODUCT_PACKAGE_OVERLAYS += vendor/dk/overlay
 
