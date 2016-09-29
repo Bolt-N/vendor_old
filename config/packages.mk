@@ -1,5 +1,5 @@
 # Additional packages
 PRODUCT_PACKAGES += \
     Eleven \
-    Busybox \
-    ViPER4Android
+    ViPER4Android \
+    Busybox 

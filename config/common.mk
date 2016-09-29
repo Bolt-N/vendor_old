@@ -7,16 +7,17 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Selinux
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.selinux=1
-
-# SuperSU
-PRODUCT_COPY_FILES += \
- vendor/dk/prebuilt/common/etc/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip \
- vendor/dk/prebuilt/common/etc/init.d/99SuperSUDaemon:system/etc/init.d/99SuperSUDaemon
-
-PRODUCT_COPY_FILES += \
- vendor/dk/prebuilt/common/addon.d/91-v4a.sh:system/addon.d/91-v4a.sh \
- vendor/dk/prebuilt/common/etc/v4a.zip:system/addon.d/v4a.zip
  
+# Density Backup
+PRODUCT_COPY_FILES += \
+    vendor/dk/prebuilt/common/addon.d/95-backup.sh:system/addon.d/95-backup.sh \
+    vendor/dk/prebuilt/common/etc/backup.conf:system/etc/backup.conf
+
+# Viper4Android
+PRODUCT_COPY_FILES += \
+    vendor/dk/prebuilt/common/addon.d/91-v4a.sh:system/addon.d/91-v4a.sh \
+    vendor/dk/prebuilt/common/etc/v4a.zip:system/addon.d/v4a.zip
+
 # Backup Tool
 PRODUCT_COPY_FILES += \
     vendor/dk/prebuilt/bin/backuptool.sh:system/bin/backuptool.sh \
@@ -28,12 +29,16 @@ PRODUCT_COPY_FILES += \
 #PRODUCT_COPY_FILES += \
 #    vendor/dk/prebuilt/bin/sysinit:system/bin/sysinit
 
-# Init script file with DarkKat extras
-#PRODUCT_COPY_FILES += \
-#    vendor/dk/prebuilt/etc/init.local.rc:root/init.dk.rc
+# init file
+PRODUCT_COPY_FILES += \
+    vendor/dk/prebuilt/common/etc/init.bolt.rc:root/init.bolt.rc
+
 
 # Additional packages
 -include vendor/dk/config/packages.mk
+
+# Addons APKs
+-include vendor/addons/config.mk
 
 PRODUCT_PACKAGE_OVERLAYS += vendor/dk/overlay
 
