@@ -13,10 +13,6 @@ PRODUCT_COPY_FILES += \
     vendor/dk/prebuilt/common/addon.d/95-backup.sh:system/addon.d/95-backup.sh \
     vendor/dk/prebuilt/common/etc/backup.conf:system/etc/backup.conf
 
-# Add bash shellPRODUCT_COPY_FILES += \ 
-  vendor/dk/prebuilt/common/bin/b:system/bin/b \ 
-  vendor/dk/prebuilt/common/bin/bash:system/bin/bash \ 
-  vendor/dk/prebuilt/common/etc/bash/bashrc:system/etc/bash/bashrc
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
