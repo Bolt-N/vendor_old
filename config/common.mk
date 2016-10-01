@@ -13,10 +13,6 @@ PRODUCT_COPY_FILES += \
     vendor/dk/prebuilt/common/addon.d/95-backup.sh:system/addon.d/95-backup.sh \
     vendor/dk/prebuilt/common/etc/backup.conf:system/etc/backup.conf
 
-# Viper4Android
-PRODUCT_COPY_FILES += \
-    vendor/dk/prebuilt/common/addon.d/91-v4a.sh:system/addon.d/91-v4a.sh \
-    vendor/dk/prebuilt/common/etc/v4a.zip:system/addon.d/v4a.zip
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
