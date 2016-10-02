@@ -42,5 +42,5 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGE_OVERLAYS += vendor/dk/overlay
 
-# Versionning
--include vendor/dk/config/version.mk
+# Inherit common product build prop overrides
+-include vendor/dk/config/common_versions.mk
