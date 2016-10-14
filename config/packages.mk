@@ -1,4 +1,5 @@
 # Additional packages
 PRODUCT_PACKAGES += \
     Eleven \
-    Busybox 
+    OmniSwitch \
+    DKWeatherService 

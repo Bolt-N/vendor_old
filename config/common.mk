@@ -43,4 +43,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGE_OVERLAYS += vendor/dk/overlay
 
 # Inherit common product build prop overrides
--include vendor/dk/config/common_versions.mk
+-include vendor/dk/config/version.mk
+-include vendor/dk/vendor.mk
+-include vendor/dk/configs/uber.mk
