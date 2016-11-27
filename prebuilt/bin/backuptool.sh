@@ -7,6 +7,22 @@ export C=/tmp/backupdir
 export S=/system
 export V=7.0
 
+# Backup fonts
+preserve_fonts() {
+  mkdir -p /tmp/fonts
+  cp -a /system/fonts/Roboto* /tmp/fonts/
+  chmod 644 /tmp/fonts/*.ttf
+}
+
+# Restore fonts
+restore_fonts() {
+  if [ -d /system/fonts/ ]; then
+    cp -a /tmp/fonts/* /system/fonts/
+    rm -rf /tmp/fonts
+    chmod 644 /tmp/fonts/*.ttf
+  fi
+}
+
 # Preserve /system/addon.d in /tmp/addon.d
 preserve_addon_d() {
   mkdir -p /tmp/addon.d/
@@ -52,6 +68,7 @@ case "$1" in
     check_prereq
     check_blacklist system
     preserve_addon_d
+    preserve_fonts
     run_stage pre-backup
     run_stage backup
     run_stage post-backup
@@ -63,6 +80,7 @@ case "$1" in
     run_stage restore
     run_stage post-restore
     restore_addon_d
+    restore_fonts
     rm -rf $C
     sync
   ;;

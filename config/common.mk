@@ -8,6 +8,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.selinux=1
  
+# Needs for MTP Dirty Hack
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+ persist.sys.usb.config=mtp
+
+ADDITIONAL_DEFAULT_PROPERTIES := \
+ ro.adb.secure=0 \
+ ro.secure=0 \
+ persist.service.adb.enable=1
+
 # Density Backup
 PRODUCT_COPY_FILES += \
     vendor/dk/prebuilt/common/addon.d/95-backup.sh:system/addon.d/95-backup.sh \
@@ -17,6 +26,11 @@ PRODUCT_COPY_FILES += \
   vendor/dk/prebuilt/common/bin/b:system/bin/b \ 
   vendor/dk/prebuilt/common/bin/bash:system/bin/bash \ 
   vendor/dk/prebuilt/common/etc/bash/bashrc:system/etc/bash/bashrc
+
+#Pixel Launcher
+PRODUCT_COPY_FILES += \
+vendor/dk/prebuilt/common/app/PixelLauncherPrebuilt.apk:system/priv-app/nexus-launcher/PixelLauncherPrebuilt.apk \
+vendor/dk/prebuilt/common/app/WallpaperPickerGooglePrebuilt.apk:system/app/nexus-launcher/WallpaperPickerGooglePrebuilt.apk
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
@@ -33,7 +47,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/dk/prebuilt/common/etc/init.bolt.rc:root/init.bolt.rc
 
-
 # Additional packages
 -include vendor/dk/config/packages.mk
 
@@ -46,3 +59,10 @@ PRODUCT_PACKAGE_OVERLAYS += vendor/dk/overlay
 -include vendor/dk/config/version.mk
 -include vendor/dk/vendor.mk
 -include vendor/dk/configs/uber.mk
+
+# DU Utils Library
+PRODUCT_BOOT_JARS += \
+    org.dirtyunicorns.utils
+
+# Squisher Location
+SQUISHER_SCRIPT := vendor/dk/tools/squisher
